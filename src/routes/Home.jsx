@@ -1,12 +1,51 @@
+import { useEffect, useState } from "react";
 import HomeDetail from "../features/Home";
 import Layout from "../layout/page";
+import CardData from "../sampleData/cardData";
+import { Col, Container, Row } from "react-bootstrap";
+import Card from "../components/molecule/card";
 
-const Home=()=>{
-    return(
+const Home = () => {
+
+    return (
         <>
-      <HomeDetail/>
+            <HomeDetail data={CardData} />
+
+
+            <Container fluid>
+                <Row>
+
+                    {/* {CardData.map((item) => (
+                        <Col>
+                            <Card key={item.id} item={item} />
+                        </Col>
+                    ))} */}
+
+
+                    <Col md={1} className="column_b">
+                    hello
+                    </Col>
+
+                    <Col md={8} className="column_b">
+                    MD - 8 column
+                    </Col>
+
+                    <Col md={1} className="column_b">
+                    hello
+                    </Col>
+
+<Col md={2} className="column_b">
+                    hello
+                    </Col>
+
+<Col md={2} className="column_b">
+                    hello
+                    </Col>
+
+                </Row>
+            </Container>
         </>
-    )
-}
+    );
+};
 
 export default Home;

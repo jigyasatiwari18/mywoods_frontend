@@ -1,6 +1,14 @@
 
+// import { useNavigate } from "react-router-dom";
 
 function Header() {
+  //  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.clear()
+    window.location.reload(true);
+    // navigate("/login")
+  }
   return (
     <header className="header">
       <div className="logo">
@@ -13,10 +21,13 @@ function Header() {
           <li><a href="/about">About</a></li>
           <li><a href="/woods">Woods</a></li>
           <li><a href="/contact">Contact</a></li>
+          {localStorage.getItem('token') ? <li><a href="/cms">CMS</a></li> : <li><a href="/login">Login</a></li>}
+
+
         </ul>
       </nav>
+      {localStorage.getItem('token') ? <button className="btn" onClick={() => handleLogout()}>Logout</button> : ""}
 
-      <button className="btn">Get Started</button>
     </header>
   );
 }

@@ -29,6 +29,36 @@ const CardData = [
       "Reconnect with nature through peaceful camping adventures.",
     price: "$149",
   },
+  {
+    id: 3,
+    image:
+      "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=600",
+    title: "Red Woods",
+    category: "Nature",
+    description:
+      "Reconnect with nature through peaceful camping adventures.",
+    price: "$149",
+  },
+  {
+    id: 3,
+    image:
+      "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=600",
+    title: "Red Woods",
+    category: "Nature",
+    description:
+      "Reconnect with nature through peaceful camping adventures.",
+    price: "$149",
+  },
+  {
+    id: 3,
+    image:
+      "https://images.unsplash.com/photo-1511884642898-4c92249e20b6?w=600",
+    title: "Red Woods",
+    category: "Nature",
+    description:
+      "Reconnect with nature through peaceful camping adventures.",
+    price: "$149",
+  },
 ];
 
 export default CardData;
