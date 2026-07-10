@@ -1,4 +1,4 @@
-﻿@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap/dist/css/bootstrap.min.css';
 
 :root {
   color-scheme: light;
@@ -655,5 +655,105 @@ button {
   .about-container,
   .contact-container {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Splash Screen */
+.splash-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, #f4e7d5 0%, #e2d0b8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+}
+
+.splash-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.splash-content {
+  text-align: center;
+  color: #5a361d;
+}
+
+.icon-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  color: #8a5a2b;
+}
+
+.wood-icon {
+  animation: bounce 1.5s infinite ease-in-out;
+}
+
+.bounce-1 {
+  animation-delay: 0s;
+}
+
+.bounce-2 {
+  animation-delay: 0.2s;
+  color: #5a361d;
+}
+
+.bounce-3 {
+  animation-delay: 0.4s;
+  color: #b37f5f;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.splash-text {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.05em;
+  color: #3b2413;
+}
+
+.splash-subtext {
+  font-size: 1.1rem;
+  color: #6f553e;
+  margin-top: 5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.loading-bar-container {
+  width: 200px;
+  height: 4px;
+  background: rgba(138, 90, 43, 0.2);
+  border-radius: 999px;
+  margin: 30px auto 0;
+  overflow: hidden;
+}
+
+.loading-bar {
+  height: 100%;
+  width: 50%;
+  background: #8a5a2b;
+  border-radius: 999px;
+  animation: loading 2s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(250%);
   }
 }

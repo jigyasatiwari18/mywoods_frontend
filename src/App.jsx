@@ -1,5 +1,6 @@
 // App.jsx
 import { Routes, Route, Link } from "react-router-dom";
+import { useState } from "react";
 import About from "./routes/About";
 import Contact from "./routes/Contact";
 import Woods from "./routes/Woods/pages";
@@ -8,8 +9,15 @@ import Header from "./components/compound/Header";
 import Footer from "./components/compound/Footer";
 import CMS from "./routes/cms";
 import Login from "./routes/login";
+import SplashScreen from "./components/compound/SplashScreen";
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+
+  if (showSplash) {
+    return <SplashScreen onFinish={() => setShowSplash(false)} />;
+  }
+
   return (
     <>
       <Header />
