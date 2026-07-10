@@ -1,11 +1,10 @@
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-    const [email, setEmail] = useState(null)
-    const [password, setPassword] = useState(null)
-//  const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     const handleLogin = async () => {
         try {
@@ -29,9 +28,8 @@ const Login = () => {
 
             const result = await response.json();
 
-            localStorage.setItem("token",result?.token)
-            window.location.reload(true);
-            // navigate("/");
+            localStorage.setItem("mywoods_token", result?.token);
+            navigate("/");
             console.log(result);
 
         } catch (error) {
@@ -40,13 +38,50 @@ const Login = () => {
     }
 
     return (
-        <>
-            <label>Email</label>
-            <input type="text" onChange={(e) => setEmail(e.target.value)} />
-            <label>Password</label>
-            <input type="password" onChange={(e) => setPassword(e.target.value)} />
-            <button onClick={() => handleLogin()}>Login</button>
-        </>
+        <main className="login-page">
+            <div className="login-panel">
+                <section className="login-card">
+                    <div className="login-card-head">
+                        <h1>Welcome back</h1>
+                        <p>Sign in with your email and password to continue.</p>
+                    </div>
+
+                    <label>Email</label>
+                    <input
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="you@example.com"
+                    />
+
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        placeholder="Enter your password"
+                    />
+
+                    <button className="btn btn-primary" onClick={handleLogin}>
+                        Login
+                    </button>
+                </section>
+
+                <section className="login-story">
+                    <div className="login-story-card">
+                        <h2>Your access gateway</h2>
+                        <p>
+                            After logout, the sign-in panel appears instantly and takes up half of the screen for a focused login experience.
+                        </p>
+                        <ul>
+                            <li>Secure timber inventory access</li>
+                            <li>Quick login for CMS and dashboard</li>
+                            <li>Designed for desktop and mobile</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </main>
     )
 }
 

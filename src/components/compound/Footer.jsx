@@ -30,7 +30,7 @@ function Footer() {
       </div>
 
       <div className="footer-bottom">
-        © {new Date().getFullYear()} MyWebsite. All Rights Reserved.
+        © {new Date().getFullYear()} Mywoods. All Rights Reserved.
       </div>
     </footer>
   );

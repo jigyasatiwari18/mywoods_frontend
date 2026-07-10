@@ -1,33 +1,35 @@
-
-// import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Header() {
-  //  const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.clear()
-    window.location.reload(true);
-    // navigate("/login")
-  }
+    localStorage.removeItem('mywoods_token');
+    navigate("/login");
+  };
+
   return (
     <header className="header">
       <div className="logo">
         <h2>Mywoods</h2>
+        <p>Timber & Design</p>
       </div>
 
       <nav>
         <ul className="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/woods">Woods</a></li>
-          <li><a href="/contact">Contact</a></li>
-          {localStorage.getItem('token') ? <li><a href="/cms">CMS</a></li> : <li><a href="/login">Login</a></li>}
-
-
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/woods">Woods</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
+          {localStorage.getItem('mywoods_token') ? <li><Link to="/cms">CMS</Link></li> : <li><Link to="/login">Login</Link></li>}
         </ul>
       </nav>
-      {localStorage.getItem('token') ? <button className="btn" onClick={() => handleLogout()}>Logout</button> : ""}
 
+      {localStorage.getItem('mywoods_token') ? (
+        <button className="btn btn-logout" onClick={handleLogout}>
+          Logout
+        </button>
+      ) : null}
     </header>
   );
 }
